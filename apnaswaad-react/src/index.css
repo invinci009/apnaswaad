@@ -1,0 +1,200 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@700;800&family=Source+Sans+Pro:wght@400;600;700&display=swap');
+
+@layer base {
+  body {
+    @apply font-source-sans antialiased;
+  }
+}
+
+@layer components {
+
+  /* Modern Button with Gradient and Glow */
+  .thekua-button {
+    @apply relative inline-flex items-center justify-center px-8 py-3 font-semibold text-indigo-900 transition-all duration-300 bg-gradient-to-r from-amber-400 via-orange-400 to-orange-600 rounded-xl shadow-lg overflow-hidden;
+  }
+
+  .thekua-button::before {
+    content: '';
+    @apply absolute inset-0 opacity-0 transition-opacity duration-300;
+    background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.3) 50%, transparent 70%);
+    background-size: 200% 200%;
+    animation: shimmer 2s infinite;
+  }
+
+  .thekua-button:hover {
+    @apply -translate-y-1 shadow-glow-lg scale-105;
+  }
+
+  .thekua-button:hover::before {
+    @apply opacity-100;
+  }
+
+  .thekua-button:active {
+    @apply scale-100;
+  }
+
+  .thekua-button-hero {
+    @apply px-6 py-3 text-base md:text-lg;
+  }
+
+  /* Modern Card with Glass Effect */
+  .glass-card {
+    @apply bg-white/80 backdrop-blur-md border border-white/20 shadow-xl rounded-2xl;
+  }
+
+  /* Nav link with modern underline animation */
+  .nav-link {
+    @apply relative inline-block transition-colors duration-200;
+  }
+
+  .nav-link::after {
+    content: '';
+    @apply block h-0.5 bg-gradient-to-r from-red-500 to-orange-500 transition-all duration-300 w-0;
+  }
+
+  .nav-link:hover {
+    @apply text-red-600;
+  }
+
+  .nav-link:hover::after {
+    @apply w-full;
+  }
+
+  /* Modern Pattern Backgrounds */
+  .textile-pattern {
+    background-image:
+      repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(251, 191, 36, 0.03) 10px, rgba(251, 191, 36, 0.03) 20px),
+      repeating-linear-gradient(-45deg, transparent, transparent 10px, rgba(239, 68, 68, 0.03) 10px, rgba(239, 68, 68, 0.03) 20px);
+  }
+
+  /* Enhanced Border with Gradient */
+  .madhubani-border {
+    @apply border-4 rounded-xl;
+    border-image: linear-gradient(135deg, #ef4444, #f97316, #fbbf24) 1;
+  }
+
+  /* Layered Background Pattern */
+  .madhubani-bg {
+    background-image:
+      radial-gradient(circle at 20% 50%, rgba(251, 191, 36, 0.05) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, rgba(239, 68, 68, 0.05) 0%, transparent 50%);
+  }
+
+  /* Modern Cart Dropdown with Smooth Animation */
+  .cart-dropdown {
+    @apply transition-all duration-300 ease-out;
+  }
+
+  .cart-dropdown.hidden {
+    @apply opacity-0 -translate-y-3 pointer-events-none scale-95;
+  }
+
+  /* Header with Frosted Glass Effect */
+  .custom-header-bg {
+    @apply bg-gradient-to-r from-peach-50 via-peach-100 to-peach-50 backdrop-blur-xl border-b border-white/20 shadow-sm;
+  }
+
+  /* Modern Product Card */
+  .product-card {
+    @apply relative bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-orange-200;
+  }
+
+
+  .product-card:hover {
+    @apply -translate-y-2;
+  }
+
+  /* Floating Animation */
+  .float {
+    @apply animate-float;
+  }
+}
+
+@layer utilities {
+
+  /* Shimmer Animation for Buttons */
+  @keyframes shimmer {
+    0% {
+      background-position: -200% 0;
+    }
+
+    100% {
+      background-position: 200% 0;
+    }
+  }
+
+  /* Gradient Text */
+  .gradient-text {
+    @apply bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 bg-clip-text text-transparent;
+  }
+
+  /* Custom Scrollbar - Modern Style */
+  .custom-scrollbar::-webkit-scrollbar {
+    @apply w-2 h-2;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    @apply bg-gray-100 rounded-full;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-gradient-to-b from-orange-400 to-red-500 rounded-full hover:from-orange-500 hover:to-red-600;
+  }
+}
+
+/* Horizontal Scroll with Modern Scrollbar */
+.horizontal-scroll {
+  @apply overflow-x-auto custom-scrollbar;
+  scrollbar-width: thin;
+  scrollbar-color: #f97316 #f3f4f6;
+}
+
+.horizontal-scroll::-webkit-scrollbar {
+  @apply h-2;
+}
+
+.horizontal-scroll::-webkit-scrollbar-thumb {
+  @apply bg-gradient-to-r from-orange-400 to-red-500 rounded-full;
+}
+
+.horizontal-scroll::-webkit-scrollbar-track {
+  @apply bg-gray-100 rounded-full;
+}
+
+/* Enhanced Animations */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-in {
+  animation: slideIn 0.6s ease-out forwards;
+}
+
+/* Stagger Animation Delays */
+.delay-100 {
+  animation-delay: 100ms;
+}
+
+.delay-200 {
+  animation-delay: 200ms;
+}
+
+.delay-300 {
+  animation-delay: 300ms;
+}
+
+.delay-400 {
+  animation-delay: 400ms;
+}
